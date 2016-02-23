@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+</head>
+<body>
+<div class="container" ng-controller="cont">
+  <div class="row">
+    <div class="col-sm-4" ng-repeat="ho in homes | filter:query | orderBy:orderProp">
+      <div class="panel panel-primary"  class="thumbnail">
+        <div class="panel-heading">{{ho.name}}</div>
+        <div class="panel-body"><a href="#/home/{{ho.id}}" class="thumb"><img ng-src="{{ho.imageUrl}}" class="img-responsive"></a></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+
+</body>
+</html>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+<div ng-app="myApp">
+  <div ng-controller="CarouselDemoCtrl" id="slides_control">
+  <div class="item active" ng-repeat="slide in slides" active="slide.active">
+
+          <img ng-src="[[slide.image]]">
+          <div class="carousel-caption">
+          </div>
+
+          </div>
+  </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+<script src="/static/js/app.js"></script>
+<script src= "/static/js/controller.js"></script>
+
+
+
+

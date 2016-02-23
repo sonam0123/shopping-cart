@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="cart">
+        <span class="glyphicon glyphicon-shopping-cart right-icons" data-toggle="modal" data-target="#cartModal"></span>
+        <span class="badge badge-notify">{/ cart_item_count /}</span>
+    </div>
+    <div class="col-md-3" ng-repeat="product in products | filter:query | orderBy:orderProp" id="product">
+        <div class="product_display">
+
+            <img class="img-responsive image" ng-src="{/ product.image /}" alt="{/ product.name /}">
+
+            <div class="product-name">
+                <a href="#">{/ product.name /}</a>
+
+                <p class="price">price :{/ product.price /}</p>
+                <p class="description"><strong>Description:</strong>{/ product.description /}</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-block button" ng-click="add_to_cart(product.id)">Add to cart</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="cartModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Shopping Cart</h4>
+            </div>
+            <div class="modal-body">
+                <span id="discard_cart_btn" class="glyphicon glyphicon-trash clickable"  ng-click="discard_cart()" ng-show="cart_item_count"></span>
+                <table class="table">
+                    <tr ng-repeat="item in cart_items">
+                        <td><img src='{/ item.image /}' height="50" width="50"></td>
+                        <td>{/ item.name /}</td>
+                        <td>x{/ item.quantity /}</td>
+                        <td class="text-right">&#x20b9;{/ item.price /} </td>
+                        <td class="glyphicon glyphicon-remove clickable" ng-click="remove_cart_item(item.id)"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                Total Price : {/ cart_total_price /}
+                <a button type="button" class="btn btn-primary" ng-show="cart_item_count" href="#/checkout/">Checkout</a>
+            </div>
+        </div>
+
+    </div>
+</div>

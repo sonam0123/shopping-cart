@@ -1,0 +1,31 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title%}Dashboard: Product List {% endblock title %}
+{% block content %}
+  <h3>Product List </h3>
+
+<table class="table table-bordered">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Images</th>
+    <th>Stock</th>
+    <th>Update</th>
+    <th>Delete</th>
+    </tr>
+   </thead>
+   <tbody>
+       <tr class="success">
+      {% for product in products %}
+        <td>{{product.name}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.image.url}}</td>
+        <td>{{product.stock}}</td>
+        <td><a href="{% url 'dashboard.views.update_product' product.id%}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td><a href="{% url  'dashboard:products_list' ,id=product.id%}"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+</table>
+{% endblock content %}

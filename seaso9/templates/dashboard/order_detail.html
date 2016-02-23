@@ -1,0 +1,27 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Dashboard: Order Detail {% endblock title %}
+{% block content %}
+Orderid : {{ order.orderid }}. Ordered on: {{ order.created }}<br/>
+Order by: {{ order.name }}<br/>
+Address: {{ order.address }}<br/>
+{{ order.city }} - {{ order.pin }}<br/>
+{{ order.state }}<br/>
+<table class="table">
+  <tbody>
+      {% for item in order.get_items %}
+        <tr>
+            <td><img src='{{ item.image }}' height="75" width="75"></td>
+            <td>{{ item.name }}<td>
+            <td>X {{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+        </tr>
+      {% endfor %}
+      <tr>
+          <td>Total Price</td>
+          <td></td>
+          <td></td>
+          <td>{{ order.total_price }}</td>
+      </tr>
+  </tbody>
+</table>
+{% endblock %}

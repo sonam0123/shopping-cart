@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+	<div class="panel panel-primary"  class="thumbnail">
+	<br><br><br>
+      Search: <input ng-model="query"><br><br>
+      Sort by:
+
+      <select ng-model="orderProp">
+
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+		</select>
+	  <br><br>
+	  </div>
+	  </div>
+	  <div class="col-sm-8">
+	 <div class="col-sm-4" ng-repeat="bag in homes | filter:query | orderBy:orderProp">
+       <div class="panel panel-primary"  class="thumbnail">
+          <a href="#" class="thumb"><img ng-src="{{bag.imageUrl}}"></a>
+          <a href="#">{{bag.name}}</a>
+</div>
+         </div>
+	  </div>
+  </div>
+</div>
+</div>
+

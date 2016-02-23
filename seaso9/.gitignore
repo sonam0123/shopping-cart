@@ -1,0 +1,28 @@
+ # Executables #
+###############
+*.pyc
+
+# Temporary files #
+###################
+*~
+*.swo
+*.swp
+*.orig
+*.sqlite3
+*.db
+vim.exe.stackdump
+
+# Coverage files
+.coverage
+htmlcov
+#Media directory
+media
+staticfiles
+staticfile
+static_root
+
+#log directory
+log
+logs
+
+*.DS_Store

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title>ENJOY THE SEASONAL Shopping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/controller.js"></script>
+</head>
+
+<body ng-controller="shopHomeCtrl">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="#/">SEASO9</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <!--li class="active"><a href="/home">Home</a></li-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right"
+                    <li>
+                        <a href="#/" data-toggle="modal" data-target="#trackOrderModal">
+                        <span class="glyphicon glyphicon-plane"></span>Track Order</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <!--Sidebar content-->
+                Search: <input ng-model="query"> Sort by:
+                <select ng-model="orderProp">
+                  <option value="name">Alphabetical</option>
+                  <option value="age">Newest</option>
+                </select>
+            </div>
+            <div class="col-md-10">
+               <div ng-view></div>
+            </div>
+            <div id="trackOrderModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h3>Track Order</h3>
+                            <div class="input-group">
+                               <input type="text" class="form-control" ng-model="orderid" placeholder="orderid">
+                               <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">Track Order</button>
+                               </span>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>

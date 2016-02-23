@@ -1,0 +1,78 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <title>{% block title %}ENJOY THE SEASONAL Shopping{% endblock title %}</title>
+  {% block meta %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% endblock %}
+  {% block includes_header %}
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+  .carousel-inner img {
+ height: 75%;
+  width: 75%;
+     /* make all photos black and white */
+   /* width: 75%; /* Set width to 100% */
+    margin: auto;
+}
+.body-img
+{
+background-image: url("/static/images/bg.PNG");
+}
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+}
+  </style>
+  {% endblock includes_header%}
+</head>
+<body class="body-img">
+{% block nav %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SEASO9</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+          <li><a href="{% url 'dashboard:home' %}">Home</a></li>
+          <li><a href="{% url 'dashboard:products_list' %}">Products</a></li>
+        <li><a href="{% url 'dashboard:orders_list' %}">Orders</a></li>
+        <!-- <li><a href="/home/products">Products</a></li>
+        <li><a href="/home/deals">Deals</a></li>
+        <li><a href="/home/stores">Stores</a></li>
+        <li><a href="/home/contact">Contact</a></li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="{% url 'dashboard:logout' %}"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+       </ul>
+    </div>
+  </div>
+</nav>
+{% endblock nav%}
+{% load bootstrap3 %}
+<div class="container">
+  {% bootstrap_messages %}
+  {% block content %} {% endblock content %}
+</div>
+</body>
+</html>

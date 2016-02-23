@@ -1,0 +1,11 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Confirm Order delete{% endblock title %}
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete order id "{{ order.orderid }}"?</p>
+    <hr/>
+    <input type="submit" value="Confirm" />
+</form>
+{% endblock content %}

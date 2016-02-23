@@ -1,0 +1,30 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title%}Dashboard: Order List {% endblock title %}
+{% block content %}
+  <h3>Order List </h3>
+<table class="table table-bordered">
+<thead>
+    <tr>
+    <th>Orderid</th>
+    <th>Customer</th>
+    <th>City</th>
+    <th>Detail</th>
+    <th>Update</th>
+    <th>Delete</th>
+    </tr>
+   </thead>
+   <tbody>
+       <tr class="success">
+      {% for order in orders %}
+        <td>{{order.orderid}}</td>
+        <td>{{order.name}}</td>
+        <td>{{order.city}}</td>
+        <td><a href="{% url  'dashboard:order_detail' order.id%}"><span class="glyphicon glyphicon-list-alt"></span></a></td>
+        <td><a href="{% url  'dashboard:order_update' order.id%}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td><a href="{% url  'dashboard:order_delete' order.id%}"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+</table>
+{% endblock content %}

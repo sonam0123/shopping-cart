@@ -1,0 +1,19 @@
+<div class="row">
+    <h3> Orderid: #{/ order.orderid /}</h3>
+    <lead>Order status: {/ order.status /}</lead>
+    <table class="table">
+        <tr ng-repeat="item in order.items">
+            <td><img src='{/ item.image /}' height="50" width="50"></td>
+            <td>{/ item.name /}</td>
+            <td>X{/ item.quantity /}</td>
+            <td>&#x20b9;{/ item.price /} </td>
+        </tr>
+        <tr>
+            <td>Total Order</td>
+            <td></td>
+            <td></td>
+            <td>{/ order.total_price /}</td>
+        </tr>
+    <table>
+    <a class="btn btn-primary" href="#/">Continue Shopping > </a>
+</div>

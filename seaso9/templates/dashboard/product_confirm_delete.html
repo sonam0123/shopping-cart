@@ -1,0 +1,12 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Confirm Contact Us delete{% endblock title %}
+
+{% block content %}
+<form action="." method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ product.name }}"?</p>
+    <img src="{{ product.image.url }}"  height="100" width="100">
+    <hr/>
+    <input type="submit" value="Confirm" />
+</form>
+{% endblock content %}
